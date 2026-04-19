@@ -160,9 +160,12 @@ img { max-width: 100%; height: auto; }
 .icon-mostaza { background: #fdf1d8; color: var(--mostaza); }
 .icon-gris { background: #e8ecee; color: var(--gris-oscuro); }
 
-.quienes-somos { max-width: 750px; }
+.quienes-somos { 
+  padding: 0 2rem; 
+}
 .qs-title {
   /* font-family: var(--font-titulo); */
+
   color: var(--azul);
   font-size: 1.6rem;
   margin-bottom: 1rem;
