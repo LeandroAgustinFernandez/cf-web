@@ -258,19 +258,19 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   overflow: hidden;
 }
-.detalle-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: var(--azul);
+.detalle-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 2rem;
+  border-top: 4px solid var(--azul);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
 }
-.detalle-card:nth-child(2)::before { background: var(--verde); }
-.detalle-card:nth-child(3)::before { background: var(--violeta); }
-.detalle-card:nth-child(4)::before { background: var(--mostaza); }
-.detalle-card:nth-child(5)::before { background: var(--gris-oscuro); }
+.detalle-card:nth-child(2) { border-top-color: var(--verde); }
+.detalle-card:nth-child(3) { border-top-color: var(--violeta); }
+.detalle-card:nth-child(4) { border-top-color: var(--mostaza); }
+.detalle-card:nth-child(5) { border-top-color: var(--gris-oscuro); }
+
+
 
 .detalle-header {
   display: flex;
@@ -350,7 +350,9 @@ img { max-width: 100%; height: auto; }
   color: var(--blanco);
   text-decoration: none;
 }
-.contacto-btn:hover svg { color: var(--blanco); }
+.contacto-btn:hover svg path { 
+  fill: var(--blanco); 
+}
 
 /* ===== FOOTER ===== */
 .footer {
