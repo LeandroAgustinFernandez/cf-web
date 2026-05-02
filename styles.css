@@ -65,6 +65,12 @@ img { max-width: 100%; height: auto; }
 .nav-logo:hover { 
   text-decoration: none; 
 }
+.text-logo{
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #d6f0f0;
+}
 .nav-links {
   list-style: none;
   display: flex;
