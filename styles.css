@@ -34,6 +34,24 @@ ul { padding-left: 1.5rem; }
 li { margin-bottom: 0.3rem; }
 img { max-width: 100%; height: auto; }
 
+/* ===== UTILIDADES COMPARTIDAS ===== */
+/* Ancho de contenido centrado, compartido por navbar, secciones y footer. */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Fila de icono + texto, compartida por tarjetas, items de contacto y footer. */
+.icon-row {
+  display: flex;
+  align-items: center;
+}
+/* Iconos del sprite (icons/sprite.svg): toman el color del contenedor. */
+.icon {
+  flex-shrink: 0;
+  color: inherit;
+}
+
 /* ===== NAVBAR ===== */
 .navbar {
   background: var(--azul);
@@ -42,8 +60,6 @@ img { max-width: 100%; height: auto; }
   z-index: 100;
 }
 .nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -100,7 +116,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* ===== SECTIONS ===== */
-.section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+.section { padding: 4rem 1.5rem; }
 .section-title {
   font-family: var(--font-titulo);
   font-size: 2.2rem;
@@ -143,8 +159,6 @@ img { max-width: 100%; height: auto; }
   text-align: left;
 }
 .value-card-header {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
@@ -187,14 +201,6 @@ img { max-width: 100%; height: auto; }
   background: linear-gradient(to bottom, var(--blanco) 0%, var(--blanco) 38%, var(--celeste) 100%);
   max-width: 100%;
   padding: 4rem 2.5rem;
-}
-.section-servicios .section-title,
-.section-servicios .servicios-subtitle,
-.section-servicios .servicios-grid,
-.section-servicios .servicios-detalle-area {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .servicios-subtitle {
   text-align: center;
@@ -265,26 +271,16 @@ img { max-width: 100%; height: auto; }
   background: var(--blanco);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  overflow: hidden;
-}
-.detalle-card {
-  background: var(--blanco);
-  border-radius: 12px;
-  padding: 2rem;
   border-top: 4px solid var(--azul);
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
 .detalle-card:nth-child(2) { border-top-color: var(--verde); }
 .detalle-card:nth-child(3) { border-top-color: var(--violeta); }
 .detalle-card:nth-child(4) { border-top-color: var(--mostaza); }
 .detalle-card:nth-child(5) { border-top-color: var(--gris-oscuro); }
 
-
-
 .detalle-header {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
@@ -325,17 +321,11 @@ img { max-width: 100%; height: auto; }
 }
 .contacto-label:first-child { margin-top: 0; }
 .contacto-item {
-  display: flex;
-  align-items: center;
   gap: 0.6rem;
   margin-bottom: 0.4rem;
   font-size: 0.95rem;
 }
-.contacto-item svg { flex-shrink: 0; color: var(--azul); }
-
-.contacto-icon {
-  fill:var(--azul);
-}
+.contacto-item svg { color: var(--azul); }
 
 .contacto-buttons {
   display: flex;
@@ -343,8 +333,6 @@ img { max-width: 100%; height: auto; }
   gap: 0.9rem;
 }
 .contacto-btn {
-  display: flex;
-  align-items: center;
   gap: 0.75rem;
   padding: 0.85rem 1.5rem;
   border: 2px solid var(--azul);
@@ -354,15 +342,13 @@ img { max-width: 100%; height: auto; }
   color: var(--texto);
   transition: background 0.2s, color 0.2s;
 }
-.contacto-btn svg { color: var(--azul); flex-shrink: 0; }
+.contacto-btn svg { color: var(--azul); }
 .contacto-btn:hover {
   background: var(--azul);
   color: var(--blanco);
   text-decoration: none;
 }
-.contacto-btn:hover svg path { 
-  fill: var(--blanco); 
-}
+.contacto-btn:hover svg { color: var(--blanco); }
 
 /* ===== FOOTER ===== */
 .footer {
@@ -371,8 +357,6 @@ img { max-width: 100%; height: auto; }
   padding: 2.5rem 1.5rem;
 }
 .footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -388,14 +372,11 @@ img { max-width: 100%; height: auto; }
 }
 .footer p { font-size: 0.9rem; margin-bottom: 0.3rem; }
 .footer-horario {
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 .btn-whatsapp {
   display: inline-flex;
-  align-items: center;
   gap: 0.5rem;
   background: #25D366;
   color: var(--blanco);

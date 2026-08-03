@@ -1,30 +1,30 @@
-// Mobile menu toggle
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+// Utilidades compartidas
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+const onClick = (el, handler) => el && el.addEventListener('click', handler);
 
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
+// Menú mobile: abre/cierra y se cierra al navegar
+const initNavToggle = () => {
+  const navToggle = $('#navToggle');
+  const navLinks = $('#navLinks');
+  if (!navToggle || !navLinks) return;
 
-// Close menu on link click
-navLinks.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+  onClick(navToggle, () => navLinks.classList.toggle('open'));
+  $$('.nav-link', navLinks).forEach(link => {
+    onClick(link, () => navLinks.classList.remove('open'));
   });
-});
+};
 
-// "Ver más" buttons scroll to detail (only on servicios page)
-document.querySelectorAll('.servicio-chip').forEach(chip => {
-  const btn = chip.querySelector('.btn-ver-mas');
-  const target = chip.getAttribute('data-target');
-  if (btn && target) {
-    btn.addEventListener('click', () => {
-      const el = document.getElementById(target);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // el.style.boxShadow = '0 0 0 3px #097AAC';
-        setTimeout(() => { el.style.boxShadow = ''; }, 1500);
-      }
+// Botones "Ver más": desplazan hasta el detalle del servicio (solo en servicios)
+const initServiceChips = () => {
+  $$('.servicio-chip').forEach(chip => {
+    const target = $(`#${chip.dataset.target}`);
+    if (!target) return;
+    onClick($('.btn-ver-mas', chip), () => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
-  }
-});
+  });
+};
+
+initNavToggle();
+initServiceChips();
